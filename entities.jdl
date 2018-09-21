@@ -44,7 +44,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToMany {
-	Product{Product(name)} to Supplier
+	Product{Supplier(name)} to Supplier
 }
 
 paginate Supplier with pagination
