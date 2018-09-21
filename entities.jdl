@@ -1,0 +1,52 @@
+entity Address {
+	street String required,
+    neighbourhood String required,
+    number String,
+    complement String,
+    code String,
+    city String required,
+    state String required,
+    country String required,
+    isPrincipal Boolean
+}
+
+entity Supplier { 
+	name String required,
+    url String,
+    code String,
+    email String
+}
+
+entity Product {
+	name String required,
+	description	String,
+    imgURL String,
+    priceValue BigDecimal required
+}
+
+entity PriceRule { 
+	name String required
+}
+
+entity SpecialOffer { 
+	discountPercent BigDecimal required,
+    startDate ZonedDateTime required,
+    endDate ZonedDateTime required
+}
+
+relationship OneToMany {
+	PriceRule to Product{PriceRule(name)},
+    Product to SpecialOffer{Product(name)}
+}
+
+relationship ManyToOne {
+	Address{User(firstName)} to User
+}
+
+relationship ManyToMany {
+	Product{Product(name)} to Supplier
+}
+
+paginate Supplier with pagination
+paginate Product with infinite-scroll
+service all with serviceImpl
