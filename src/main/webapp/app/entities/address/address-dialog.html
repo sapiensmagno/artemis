@@ -1,0 +1,115 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAddressLabel" data-translate="artemisApp.address.home.createOrEditLabel">Create or edit a Address</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.address.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.address.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                    ng-model="vm.address.street"
+                    required/>
+            <div ng-show="editForm.street.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.street.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.neighbourhood" for="field_neighbourhood">Neighbourhood</label>
+            <input type="text" class="form-control" name="neighbourhood" id="field_neighbourhood"
+                    ng-model="vm.address.neighbourhood"
+                    required/>
+            <div ng-show="editForm.neighbourhood.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.neighbourhood.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.number" for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                    ng-model="vm.address.number"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.complement" for="field_complement">Complement</label>
+            <input type="text" class="form-control" name="complement" id="field_complement"
+                    ng-model="vm.address.complement"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.address.code"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                    ng-model="vm.address.city"
+                    required/>
+            <div ng-show="editForm.city.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.city.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.state" for="field_state">State</label>
+            <input type="text" class="form-control" name="state" id="field_state"
+                    ng-model="vm.address.state"
+                    required/>
+            <div ng-show="editForm.state.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.state.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.country" for="field_country">Country</label>
+            <input type="text" class="form-control" name="country" id="field_country"
+                    ng-model="vm.address.country"
+                    required/>
+            <div ng-show="editForm.country.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.country.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="artemisApp.address.isPrincipal" for="field_isPrincipal">Is Principal</label>
+                <input type="checkbox" name="isPrincipal" id="field_isPrincipal"
+                          ng-model="vm.address.isPrincipal"/>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="artemisApp.address.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.address.user" ng-options="user as user.firstName for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

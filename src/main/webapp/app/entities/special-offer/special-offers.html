@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="artemisApp.specialOffer.home.title">Special Offers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="special-offer.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="artemisApp.specialOffer.home.createLabel">
+                        Create new Special Offer
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="artemisApp.specialOffer.discountPercent">Discount Percent</span></th>
+                    <th><span data-translate="artemisApp.specialOffer.startDate">Start Date</span></th>
+                    <th><span data-translate="artemisApp.specialOffer.endDate">End Date</span></th>
+                    <th><span data-translate="artemisApp.specialOffer.product">Product</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="specialOffer in vm.specialOffers track by specialOffer.id">
+                    <td><a ui-sref="special-offer-detail({id:specialOffer.id})">{{specialOffer.id}}</a></td>
+                    <td>{{specialOffer.discountPercent}}</td>
+                    <td>{{specialOffer.startDate | date:'medium'}}</td>
+                    <td>{{specialOffer.endDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="product-detail({id:specialOffer.product.id})">{{specialOffer.product.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="special-offer-detail({id:specialOffer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="special-offer.edit({id:specialOffer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="special-offer.delete({id:specialOffer.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

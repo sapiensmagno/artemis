@@ -1,0 +1,22 @@
+{
+    "artemisApp": {
+        "priceRule" : {
+            "home": {
+                "title": "Price Rules",
+                "createLabel": "Criar novo Price Rule",
+                "createOrEditLabel": "Criar ou editar Price Rule"
+            },
+            "created": "Um novo Price Rule foi criado com o identificador {{ param }}",
+            "updated": "Um Price Rule foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Price Rule foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Price Rule {{ id }}?"
+            },
+            "detail": {
+                "title": "Price Rule"
+            },
+            "name": "Name",
+            "product": "Product"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "artemisApp": {
+        "product" : {
+            "home": {
+                "title": "Products",
+                "createLabel": "Criar novo Product",
+                "createOrEditLabel": "Criar ou editar Product"
+            },
+            "created": "Um novo Product foi criado com o identificador {{ param }}",
+            "updated": "Um Product foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Product foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Product {{ id }}?"
+            },
+            "detail": {
+                "title": "Product"
+            },
+            "name": "Name",
+            "description": "Description",
+            "imgURL": "Img URL",
+            "priceValue": "Price Value",
+            "specialOffer": "Special Offer",
+            "supplier": "Supplier",
+            "priceRule": "Price Rule"
+        }
+    }
+}

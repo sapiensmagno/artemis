@@ -1,0 +1,24 @@
+{
+    "artemisApp": {
+        "supplier" : {
+            "home": {
+                "title": "Suppliers",
+                "createLabel": "Criar novo Supplier",
+                "createOrEditLabel": "Criar ou editar Supplier"
+            },
+            "created": "Um novo Supplier foi criado com o identificador {{ param }}",
+            "updated": "Um Supplier foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Supplier foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Supplier {{ id }}?"
+            },
+            "detail": {
+                "title": "Supplier"
+            },
+            "name": "Name",
+            "url": "Url",
+            "code": "Code",
+            "email": "Email"
+        }
+    }
+}

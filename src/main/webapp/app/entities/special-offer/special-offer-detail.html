@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="artemisApp.specialOffer.detail.title">Special Offer</span> {{vm.specialOffer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="artemisApp.specialOffer.discountPercent">Discount Percent</span></dt>
+        <dd>
+            <span>{{vm.specialOffer.discountPercent}}</span>
+        </dd>
+        <dt><span data-translate="artemisApp.specialOffer.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{vm.specialOffer.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="artemisApp.specialOffer.endDate">End Date</span></dt>
+        <dd>
+            <span>{{vm.specialOffer.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="artemisApp.specialOffer.product">Product</span></dt>
+        <dd>
+            <a ui-sref="product-detail({id:vm.specialOffer.product.id})">{{vm.specialOffer.product.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="special-offer-detail.edit({id:vm.specialOffer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
