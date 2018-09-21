@@ -29,5 +29,13 @@
         </createTable>
         
     </changeSet>
+    <changeSet id="20180921132158-1" author="sapiensmagno">    
+         <loadData encoding="UTF-8"
+                  file="config/liquibase/pricerules.csv"
+                  separator=";"
+                  tableName="price_rule"/>
+    </changeSet>
+
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+
 </databaseChangeLog>
