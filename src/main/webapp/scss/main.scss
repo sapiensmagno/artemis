@@ -11,15 +11,20 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
     display: none !important;
 }
 
-.product-small {
-	box-sizing: border-box;
-	vertical-align: baseline;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	width: 100%;
+.product-small-wrapper {
+	width: 90%;
+	height: 0;
+	padding-bottom: 66.67%;
+	border: 2px solid white;
 	position: relative;
-	display: inline-block;
+}
+
+.product-small {
+
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	
 }
 
 /* ==========================================================================
