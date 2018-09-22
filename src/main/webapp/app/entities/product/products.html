@@ -32,7 +32,7 @@
                     <td><a ui-sref="product-detail({id:product.id})">{{product.id}}</a></td>
                     <td>{{product.name}}</td>
                     <td>{{product.description}}</td>
-                    <td><img src="{{product.imgURL}}"/></td>
+                    <td><img class="product-small" src="{{product.imgURL}}"/></td>
                     <td>{{product.priceValue}}</td>
                     <td>
                         <a ui-sref="price-rule-detail({id:product.priceRule.id})">{{product.priceRule.name}}</a>
