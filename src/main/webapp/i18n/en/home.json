@@ -1,7 +1,7 @@
 {
     "home": {
-        "title": "Welcome, Java Hipster!",
-        "subtitle": "This is your homepage",
+        "title": "Art Miscellanea",
+        "subtitle": "The most beautiful classical works hand-painted for you",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
