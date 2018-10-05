@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "delivery",
+            "otherEntityName": "delivery",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "lastUpdate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181005230110",
+    "entityTableName": "delivery_status",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl"
+}

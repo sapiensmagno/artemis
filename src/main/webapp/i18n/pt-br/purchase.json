@@ -1,0 +1,27 @@
+{
+    "artemisApp": {
+        "purchase" : {
+            "home": {
+                "title": "Purchases",
+                "createLabel": "Criar novo Purchase",
+                "createOrEditLabel": "Criar ou editar Purchase"
+            },
+            "created": "Um novo Purchase foi criado com o identificador {{ param }}",
+            "updated": "Um Purchase foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Purchase foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Purchase {{ id }}?"
+            },
+            "detail": {
+                "title": "Purchase"
+            },
+            "quantity": "Quantity",
+            "creation": "Creation",
+            "status": "Status",
+            "delivery": "Delivery",
+            "product": "Product",
+            "supplier": "Supplier",
+            "user": "User"
+        }
+    }
+}

@@ -12,6 +12,9 @@
                 "product": "Product",
                 "priceRule": "Price Rule",
                 "specialOffer": "Special Offer",
+                "delivery": "Delivery",
+                "deliveryStatus": "Delivery Status",
+                "purchase": "Purchase",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

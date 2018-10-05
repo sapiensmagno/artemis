@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "deliveryStatus",
+            "otherEntityName": "deliveryStatus",
+            "otherEntityRelationshipName": "delivery"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "purchase",
+            "otherEntityName": "purchase",
+            "otherEntityField": "creation"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20181005230109",
+    "entityTableName": "delivery",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl"
+}

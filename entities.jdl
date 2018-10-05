@@ -24,23 +24,43 @@ entity Product {
     priceValue BigDecimal required
 }
 
-entity PriceRule { 
-	name String required
-}
-
 entity SpecialOffer { 
 	discountPercent BigDecimal required,
     startDate ZonedDateTime required,
     endDate ZonedDateTime required
 }
 
-relationship OneToMany {
-	PriceRule to Product{PriceRule(name)},
-    Product to SpecialOffer{Product(name)}
+entity Delivery {		
 }
 
+entity PriceRule { 
+	name String required
+}
+
+entity DeliveryStatus {
+	lastUpdate ZonedDateTime,
+    name String
+}
+
+entity Purchase {
+	quantity Integer required,
+    creation ZonedDateTime,
+    status String    
+}
+
+relationship OneToMany {
+    Product to SpecialOffer{Product(name)},
+    PriceRule to Product{PriceRule(name)},
+    Purchase{Delivery(DeliveryStatus)} to Delivery{Purchase(creation)},
+    Delivery{DeliveryStatus(name)} to DeliveryStatus
+}
+
+
 relationship ManyToOne {
-	Address{User(firstName)} to User
+	Address{User(firstName)} to User,
+    Purchase{Product(name)} to Product,
+    Purchase{Supplier(name)} to Supplier,
+    Purchase{User(firstName)} to User
 }
 
 relationship ManyToMany {

@@ -1,0 +1,23 @@
+{
+    "artemisApp": {
+        "deliveryStatus" : {
+            "home": {
+                "title": "Delivery Statuses",
+                "createLabel": "Criar novo Delivery Status",
+                "createOrEditLabel": "Criar ou editar Delivery Status"
+            },
+            "created": "Um novo Delivery Status foi criado com o identificador {{ param }}",
+            "updated": "Um Delivery Status foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Delivery Status foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Delivery Status {{ id }}?"
+            },
+            "detail": {
+                "title": "Delivery Status"
+            },
+            "lastUpdate": "Last Update",
+            "name": "Name",
+            "delivery": "Delivery"
+        }
+    }
+}

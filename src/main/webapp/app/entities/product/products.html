@@ -21,7 +21,7 @@
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span data-translate="artemisApp.product.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span data-translate="artemisApp.product.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="imgURL"><span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imgURL"><span data-translate="artemisApp.product.imgURL">Img URL</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="priceValue"><span data-translate="artemisApp.product.priceValue">Price Value</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="priceRule.name"><span data-translate="artemisApp.product.priceRule">Price Rule</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -32,7 +32,7 @@
                     <td><a ui-sref="product-detail({id:product.id})">{{product.id}}</a></td>
                     <td>{{product.name}}</td>
                     <td>{{product.description}}</td>
-                    <td><img class="product-small" src="{{product.imgURL}}"/></td>
+                    <td>{{product.imgURL}}</td>
                     <td>{{product.priceValue}}</td>
                     <td>
                         <a ui-sref="price-rule-detail({id:product.priceRule.id})">{{product.priceRule.name}}</a>
