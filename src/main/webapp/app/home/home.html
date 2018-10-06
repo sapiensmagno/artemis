@@ -14,7 +14,7 @@
         	infinite-scroll-disabled="vm.page >= vm.links['last']">
    
         	<div><center>{{product.name}} - {{product.description}}</center></div>
-            <div class="product-wrapper">
+            <div ui-sref="purchase.new({product:product.id})" class="product-wrapper">
             		<img class="product-wrapped" src="{{product.imgURL}}"/>
  			</div>
  			<div><center>{{product.priceValue}}</center></div>

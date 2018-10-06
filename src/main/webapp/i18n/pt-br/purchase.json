@@ -2,26 +2,28 @@
     "artemisApp": {
         "purchase" : {
             "home": {
-                "title": "Purchases",
-                "createLabel": "Criar novo Purchase",
-                "createOrEditLabel": "Criar ou editar Purchase"
+                "title": "Minhas compras",
+                "createLabel": "Concluir e pagar",
+                "createOrEditLabel": "Selecionar a quantidade deste produto"
             },
-            "created": "Um novo Purchase foi criado com o identificador {{ param }}",
-            "updated": "Um Purchase foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Purchase foi deletado com o identificador {{ param }}",
+            "created": "Produto adicionado ao carrinho",
+            "updated": "Carrinho atualizado",
+            "deleted": "Produto removido do carrinho",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Purchase {{ id }}?"
+                "question": "Tem certeza de que deseja remover este produto do carrinho?"
             },
             "detail": {
-                "title": "Purchase"
+                "title": "Carrinho de compras"
             },
-            "quantity": "Quantity",
+            "quantity": "Quantidade",
             "creation": "Creation",
-            "status": "Status",
+            "status": "Situação",
             "delivery": "Delivery",
-            "product": "Product",
+            "product": "Artista",
+            "productDescription": "Obra",
             "supplier": "Supplier",
-            "user": "User"
+            "user": "User",
+            "price": "Preço"
         }
     }
 }

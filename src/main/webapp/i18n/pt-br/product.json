@@ -2,26 +2,26 @@
     "artemisApp": {
         "product" : {
             "home": {
-                "title": "Products",
-                "createLabel": "Criar novo Product",
-                "createOrEditLabel": "Criar ou editar Product"
+                "title": "Produtos",
+                "createLabel": "Cadastrar novo produto",
+                "createOrEditLabel": "Cadastrar ou editar produto"
             },
-            "created": "Um novo Product foi criado com o identificador {{ param }}",
-            "updated": "Um Product foi atualizado com o identificador {{ param }}",
-            "deleted": "Um Product foi deletado com o identificador {{ param }}",
+            "created": "Um novo produto foi criado com o identificador {{ param }}",
+            "updated": "Um produto foi atualizado com o identificador {{ param }}",
+            "deleted": "Um produto foi deletado com o identificador {{ param }}",
             "delete": {
-                "question": "Tem certeza de que deseja excluir Product {{ id }}?"
+                "question": "Tem certeza de que deseja excluir produto {{ id }}?"
             },
             "detail": {
-                "title": "Product"
+                "title": "Produto"
             },
-            "name": "Name",
-            "description": "Description",
+            "name": "Artista",
+            "description": "Obra",
             "imgURL": "Img URL",
-            "priceValue": "Price Value",
-            "specialOffer": "Special Offer",
-            "supplier": "Supplier",
-            "priceRule": "Price Rule"
+            "priceValue": "Preço",
+            "specialOffer": "Promoção",
+            "supplier": "Fornecedor",
+            "priceRule": "Regra de preço"
         }
     }
 }

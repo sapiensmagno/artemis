@@ -18,39 +18,27 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="artemisApp.purchase.quantity">Quantity</span></th>
-                    <th><span data-translate="artemisApp.purchase.creation">Creation</span></th>
+                    <th><span data-translate="artemisApp.purchase.price">Price</span></th>
                     <th><span data-translate="artemisApp.purchase.status">Status</span></th>
                     <th><span data-translate="artemisApp.purchase.product">Product</span></th>
-                    <th><span data-translate="artemisApp.purchase.supplier">Supplier</span></th>
-                    <th><span data-translate="artemisApp.purchase.user">User</span></th>
+                    <th><span data-translate="artemisApp.purchase.productDescription">Description</span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="purchase in vm.purchases track by purchase.id">
-                    <td><a ui-sref="purchase-detail({id:purchase.id})">{{purchase.id}}</a></td>
                     <td>{{purchase.quantity}}</td>
-                    <td>{{purchase.creation | date:'medium'}}</td>
+                    <td>{{purchase.product.priceValue}}</td>
                     <td>{{purchase.status}}</td>
                     <td>
                         <a ui-sref="product-detail({id:purchase.product.id})">{{purchase.product.name}}</a>
                     </td>
                     <td>
-                        <a ui-sref="supplier-detail({id:purchase.supplier.id})">{{purchase.supplier.name}}</a>
-                    </td>
-                    <td>
-                        {{purchase.user.firstName}}
+                        {{purchase.product.description}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="purchase-detail({id:purchase.id})"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
-                            </button>
                             <button type="submit"
                                     ui-sref="purchase.edit({id:purchase.id})"
                                     class="btn btn-primary btn-sm">

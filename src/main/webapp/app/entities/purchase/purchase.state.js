@@ -90,7 +90,7 @@
         })
         .state('purchase.new', {
             parent: 'purchase',
-            url: '/new',
+            url: '/new/{product}',
             data: {
                 authorities: ['ROLE_USER']
             },
@@ -103,10 +103,12 @@
                     size: 'lg',
                     resolve: {
                         entity: function () {
-                            return {
-                                quantity: null,
+                        	console.log ('here');
+                        	return {
+                                quantity: 1,
                                 creation: null,
                                 status: null,
+                                product: {id: $stateParams.product},
                                 id: null
                             };
                         }
