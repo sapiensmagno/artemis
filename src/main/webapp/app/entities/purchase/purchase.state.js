@@ -63,29 +63,16 @@
                 }]
             }
         })
-        .state('purchase-detail.edit', {
+        .state('purchase-detail.pay', {
             parent: 'purchase-detail',
-            url: '/detail/edit',
+            url: '/pay/{id}',
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/purchase/purchase-dialog.html',
-                    controller: 'PurchaseDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: ['Purchase', function(Purchase) {
-                            return Purchase.get({id : $stateParams.id}).$promise;
-                        }]
-                    }
-                }).result.then(function() {
-                    $state.go('^', {}, { reload: false });
-                }, function() {
-                    $state.go('^');
-                });
+            onEnter: ['$stateParams', '$state', '$uibModal', 'Purchase', function($stateParams, $state, $uibModal, Purchase) {
+                	return 	Purchase.pay({id : $stateParams.id}).$promise;
+                	/*.then($state.go('^')).$promise;*/
+                
             }]
         })
         .state('purchase.new', {

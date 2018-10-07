@@ -1,9 +1,12 @@
 package br.com.artemis.repository;
 
-import br.com.artemis.domain.Supplier;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import org.springframework.data.jpa.repository.*;
+import br.com.artemis.domain.Product;
+import br.com.artemis.domain.Supplier;
 
 
 /**

@@ -3,8 +3,10 @@
         "purchase" : {
             "home": {
                 "title": "Minhas compras",
-                "createLabel": "Concluir e pagar",
-                "createOrEditLabel": "Selecionar a quantidade deste produto"
+                "createLabel": "-",
+                "createOrEditLabel": "Selecionar a quantidade deste produto",
+                "editButton": "Alterar quantidade",
+                "payButton": "Pagamento"
             },
             "created": "Produto adicionado ao carrinho",
             "updated": "Carrinho atualizado",
@@ -13,17 +15,20 @@
                 "question": "Tem certeza de que deseja remover este produto do carrinho?"
             },
             "detail": {
-                "title": "Carrinho de compras"
+                "title": "Carrinho de compras - Pagamento"
             },
             "quantity": "Quantidade",
-            "creation": "Creation",
+            "creation": "Inclusão",
             "status": "Situação",
             "delivery": "Delivery",
             "product": "Artista",
             "productDescription": "Obra",
+            "paymentData": "Dados para pagamento",
             "supplier": "Supplier",
             "user": "User",
-            "price": "Preço"
+            "totalPrice": "Preço total",
+            "price": "Preço",
+            "registerPaymentButton": "Registrar pagamento"
         }
     }
 }

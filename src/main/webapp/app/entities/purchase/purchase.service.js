@@ -21,7 +21,11 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' },
+            'pay': {
+            	method: 'PUT',
+            	url: '/api/purchases/pay'
+            }
         });
     }
 })();

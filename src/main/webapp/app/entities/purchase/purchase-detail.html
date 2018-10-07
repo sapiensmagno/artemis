@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span data-translate="artemisApp.purchase.detail.title">Purchase</span> {{vm.purchase.id}}</h2>
+    <h2><span data-translate="artemisApp.purchase.detail.title">Purchase</span> R$ {{vm.purchase.totalPrice}}</h2>
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="dl-horizontal jh-entity-details">
@@ -18,16 +18,17 @@
         </dd>
         <dt><span data-translate="artemisApp.purchase.product">Product</span></dt>
         <dd>
-            <a ui-sref="product-detail({id:vm.purchase.product.id})">{{vm.purchase.product.name}}</a>
+            {{vm.purchase.product.name}}
         </dd>
-        <dt><span data-translate="artemisApp.purchase.supplier">Supplier</span></dt>
+        <dt><span data-translate="artemisApp.purchase.productDescription">Description</span></dt>
         <dd>
-            <a ui-sref="supplier-detail({id:vm.purchase.supplier.id})">{{vm.purchase.supplier.name}}</a>
+            {{vm.purchase.product.description}}
         </dd>
-        <dt><span data-translate="artemisApp.purchase.user">User</span></dt>
+        <dt><span data-translate="artemisApp.purchase.paymentData">Dados para pagamento</span></dt>
         <dd>
-            {{vm.purchase.user.firstName}}
+            Banco: 01 Agência: 9489-3 Conta: 99983-9
         </dd>
+
     </dl>
 
     <button type="submit"
@@ -36,8 +37,8 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="purchase-detail.edit({id:vm.purchase.id})" class="btn btn-primary">
+    <button type="button" ui-sref="purchase-detail.pay({id:vm.purchase.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
-        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+        <span class="hidden-sm-down" data-translate="artemisApp.purchase.registerPaymentButton"> Register payment</span>
     </button>
 </div>

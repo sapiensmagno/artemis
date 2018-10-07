@@ -1,8 +1,12 @@
 package br.com.artemis.service;
 
-import br.com.artemis.domain.Supplier;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+
+import br.com.artemis.domain.Product;
+import br.com.artemis.domain.Supplier;
 
 /**
  * Service Interface for managing Supplier.
@@ -32,7 +36,7 @@ public interface SupplierService {
      *  @return the entity
      */
     Supplier findOne(Long id);
-
+    
     /**
      *  Delete the "id" supplier.
      *

@@ -1,14 +1,18 @@
 package br.com.artemis.service.impl;
 
-import br.com.artemis.service.SupplierService;
-import br.com.artemis.domain.Supplier;
-import br.com.artemis.repository.SupplierRepository;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import br.com.artemis.domain.Product;
+import br.com.artemis.domain.Supplier;
+import br.com.artemis.repository.SupplierRepository;
+import br.com.artemis.service.SupplierService;
 
 
 /**
@@ -62,6 +66,7 @@ public class SupplierServiceImpl implements SupplierService{
         log.debug("Request to get Supplier : {}", id);
         return supplierRepository.findOne(id);
     }
+    
 
     /**
      *  Delete the  supplier by id.
@@ -73,4 +78,5 @@ public class SupplierServiceImpl implements SupplierService{
         log.debug("Request to delete Supplier : {}", id);
         supplierRepository.delete(id);
     }
+
 }

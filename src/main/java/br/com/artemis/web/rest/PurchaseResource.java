@@ -1,21 +1,32 @@
 package br.com.artemis.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
-import br.com.artemis.domain.Purchase;
-import br.com.artemis.service.PurchaseService;
-import br.com.artemis.web.rest.util.HeaderUtil;
-import io.github.jhipster.web.util.ResponseUtil;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import java.net.URI;
-import java.net.URISyntaxException;
+import com.codahale.metrics.annotation.Timed;
 
-import java.util.List;
-import java.util.Optional;
+import br.com.artemis.domain.Purchase;
+import br.com.artemis.service.PurchaseService;
+import br.com.artemis.service.SupplierService;
+import br.com.artemis.web.rest.util.HeaderUtil;
+import io.github.jhipster.web.util.ResponseUtil;
 
 /**
  * REST controller for managing Purchase.
@@ -29,9 +40,12 @@ public class PurchaseResource {
     private static final String ENTITY_NAME = "purchase";
 
     private final PurchaseService purchaseService;
+    
+    private final SupplierService supplierService;
 
-    public PurchaseResource(PurchaseService purchaseService) {
+    public PurchaseResource(PurchaseService purchaseService, SupplierService supplierService) {
         this.purchaseService = purchaseService;
+        this.supplierService = supplierService;
     }
 
     /**
@@ -48,6 +62,8 @@ public class PurchaseResource {
         if (purchase.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new purchase cannot already have an ID")).body(null);
         }
+        purchase.setCreation(ZonedDateTime.now());
+        purchase.setStatus(PurchaseService.INITIAL_STATUS);
         Purchase result = purchaseService.save(purchase);
         return ResponseEntity.created(new URI("/api/purchases/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -75,6 +91,33 @@ public class PurchaseResource {
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, purchase.getId().toString()))
             .body(result);
     }
+    
+    /**
+     * PUT  /purchases/pay : Registers client's payment.
+     *
+     * @param purchase the purchase to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated purchase,
+     * or with status 400 (Bad Request) if the purchase is not valid,
+     * or with status 500 (Internal Server Error) if the purchase couldn't be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PutMapping("/purchases/pay")
+    @Timed
+    public ResponseEntity<Purchase> pay(@RequestBody Purchase purchase) throws URISyntaxException {
+        log.debug("REST request to pay Purchase : {}", purchase);
+        if (purchase.getId() == null) {
+        	return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "nullID", "ID cannot be null")).body(null);
+        }
+
+        Purchase result = purchaseService.findOne(purchase.getId());
+        result.setStatus("Pagamento em confirmação.");
+        result = purchaseService.save(result);
+        
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, purchase.getId().toString()))
+            .body(result);
+    }
+
 
     /**
      * GET  /purchases : get all the purchases.

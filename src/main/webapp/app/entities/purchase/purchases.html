@@ -3,14 +3,7 @@
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="purchase.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="artemisApp.purchase.home.createLabel">
-                        Create new Purchase
-                    </span>
-                </button>
-            </div>
+            
         </div>
     </div>
     <br/>
@@ -20,6 +13,7 @@
                 <tr>
                     <th><span data-translate="artemisApp.purchase.quantity">Quantity</span></th>
                     <th><span data-translate="artemisApp.purchase.price">Price</span></th>
+                    <th><span data-translate="artemisApp.purchase.totalPrice">Total price</span></th>
                     <th><span data-translate="artemisApp.purchase.status">Status</span></th>
                     <th><span data-translate="artemisApp.purchase.product">Product</span></th>
                     <th><span data-translate="artemisApp.purchase.productDescription">Description</span></th>
@@ -30,20 +24,27 @@
                 <tr ng-repeat="purchase in vm.purchases track by purchase.id">
                     <td>{{purchase.quantity}}</td>
                     <td>{{purchase.product.priceValue}}</td>
+                    <td>{{purchase.totalPrice}}</td>
                     <td>{{purchase.status}}</td>
                     <td>
-                        <a ui-sref="product-detail({id:purchase.product.id})">{{purchase.product.name}}</a>
+                        {{purchase.product.name}}
                     </td>
                     <td>
                         {{purchase.product.description}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
+                        	<button type="submit"
+                                    ui-sref="purchase-detail({id:purchase.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="artemisApp.purchase.home.payButton"></span>
+                            </button>
                             <button type="submit"
                                     ui-sref="purchase.edit({id:purchase.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                                <span class="hidden-sm-down" data-translate="artemisApp.purchase.home.editButton"></span>
                             </button>
                             <button type="submit"
                                     ui-sref="purchase.delete({id:purchase.id})"

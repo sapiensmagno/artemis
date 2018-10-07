@@ -8,6 +8,7 @@ import java.util.List;
  */
 public interface PurchaseService {
 
+	public static String INITIAL_STATUS = "Aguardando pagamento";
     /**
      * Save a purchase.
      *
