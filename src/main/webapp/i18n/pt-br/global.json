@@ -6,15 +6,15 @@
             "home": "Início",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entidades",
-                "address": "Address",
-                "supplier": "Supplier",
-                "product": "Product",
-                "priceRule": "Price Rule",
-                "specialOffer": "Special Offer",
-                "delivery": "Delivery",
-                "deliveryStatus": "Delivery Status",
-                "purchase": "Purchase",
+                "main": "Principal",
+                "address": "Endereço de entrega",
+                "supplier": "Fornecedor",
+                "product": "Produto",
+                "priceRule": "Regra de preço",
+                "specialOffer": "Promoção",
+                "delivery": "Entrega",
+                "deliveryStatus": "Status de entrega",
+                "purchase": "Minhas compras",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -129,5 +129,5 @@
         "emailexists": "Este email já está cadastrado!",
         "idexists": "Novo(a) {{entityName}} não pode ter uma ID"
     },
-    "footer": "Este é o seu rodapé"
+    "footer": ""
 }
