@@ -84,4 +84,9 @@ public class AddressServiceImpl implements AddressService{
         log.debug("Request to delete Address : {}", id);
         addressRepository.delete(id);
     }
+
+	@Override
+	public Address findByUser(User user) {
+		return addressRepository.findByUserIsCurrentUser().get(0);
+	}
 }

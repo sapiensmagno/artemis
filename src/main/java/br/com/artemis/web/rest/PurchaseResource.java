@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.codahale.metrics.annotation.Timed;
 
 import br.com.artemis.domain.Purchase;
+import br.com.artemis.service.AddressService;
 import br.com.artemis.service.PurchaseService;
 import br.com.artemis.service.SupplierService;
+import br.com.artemis.suppliercommunication.SupplierCommunication;
 import br.com.artemis.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 
@@ -42,10 +44,13 @@ public class PurchaseResource {
     private final PurchaseService purchaseService;
     
     private final SupplierService supplierService;
+    
+    private final AddressService addressService;
 
-    public PurchaseResource(PurchaseService purchaseService, SupplierService supplierService) {
+    public PurchaseResource(PurchaseService purchaseService, SupplierService supplierService, AddressService addressService) {
         this.purchaseService = purchaseService;
         this.supplierService = supplierService;
+        this.addressService = addressService;
     }
 
     /**
@@ -118,6 +123,33 @@ public class PurchaseResource {
             .body(result);
     }
 
+    /**
+     * PUT  /purchases/pay : Registers client's payment.
+     *
+     * @param purchase the purchase to update
+     * @return the ResponseEntity with status 200 (OK) and with body the updated purchase,
+     * or with status 400 (Bad Request) if the purchase is not valid,
+     * or with status 500 (Internal Server Error) if the purchase couldn't be updated
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PutMapping("/purchases/confirmPayment")
+    @Timed
+    public ResponseEntity<Purchase> confirmPayment(@RequestBody Purchase purchase) throws URISyntaxException {
+        log.debug("REST request to confirm purchase payment : {}", purchase);
+        if (purchase.getId() == null) {
+        	return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "nullID", "ID cannot be null")).body(null);
+        }
+        
+        SupplierCommunication supplierService = new SupplierCommunication();
+        Purchase result = purchaseService.findOne(purchase.getId());
+        supplierService.createProductRequest(result.getProduct(), addressService.findByUser(result.getUser()));
+        result.setStatus("Pedido confirmado.");
+        result = purchaseService.save(result);
+        
+        return ResponseEntity.ok()
+            .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, purchase.getId().toString()))
+            .body(result);
+    }
 
     /**
      * GET  /purchases : get all the purchases.

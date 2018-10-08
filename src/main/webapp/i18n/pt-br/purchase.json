@@ -28,7 +28,8 @@
             "user": "User",
             "totalPrice": "Preço total",
             "price": "Preço",
-            "registerPaymentButton": "Registrar pagamento"
+            "registerPaymentButton": "Registrar pagamento",
+            "confirmPaymentButton": "Confirmar pagamento do cliente"
         }
     }
 }

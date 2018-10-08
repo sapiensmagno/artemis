@@ -1,7 +1,9 @@
 package br.com.artemis.service;
 
-import br.com.artemis.domain.Address;
 import java.util.List;
+
+import br.com.artemis.domain.Address;
+import br.com.artemis.domain.User;
 
 /**
  * Service Interface for managing Address.
@@ -37,4 +39,6 @@ public interface AddressService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+    
+    Address findByUser(User user);
 }

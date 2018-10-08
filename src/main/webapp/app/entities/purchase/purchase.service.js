@@ -25,6 +25,10 @@
             'pay': {
             	method: 'PUT',
             	url: '/api/purchases/pay'
+            },
+            'confirmPayment': {
+            	method: 'PUT',
+            	url: '/api/purchases/confirmPayment'
             }
         });
     }

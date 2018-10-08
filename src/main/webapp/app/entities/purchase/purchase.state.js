@@ -69,12 +69,28 @@
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', 'Purchase', function($stateParams, $state, $uibModal, Purchase) {
-                	return 	Purchase.pay({id : $stateParams.id}).$promise;
-                	/*.then($state.go('^')).$promise;*/
+            onEnter: ['$stateParams', '$state', 'Purchase', function($stateParams, $state, Purchase) {
+            	            	
+            	return 	Purchase.pay({id : $stateParams.id})
+            	.then($state.go('purchase')).promise$;
                 
-            }]
-        })
+            	}
+            
+         ]})
+         .state('purchase-detail.confirmPayment', {
+            parent: 'purchase-detail',
+            url: '/confirmPayment/{id}',
+            data: {
+                authorities: ['ROLE_ADMIN']
+            },
+            onEnter: ['$stateParams', '$state', 'Purchase', function($stateParams, $state, Purchase) {
+            	            	
+            	return 	Purchase.confirmPayment({id : $stateParams.id})
+            	.then($state.go('purchase')).promise$;
+                
+            	}
+            
+         ]})
         .state('purchase.new', {
             parent: 'purchase',
             url: '/new/{product}',
@@ -90,7 +106,6 @@
                     size: 'lg',
                     resolve: {
                         entity: function () {
-                        	console.log ('here');
                         	return {
                                 quantity: 1,
                                 creation: null,

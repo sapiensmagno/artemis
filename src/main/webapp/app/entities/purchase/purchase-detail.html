@@ -37,8 +37,15 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
+	
     <button type="button" ui-sref="purchase-detail.pay({id:vm.purchase.id})" class="btn btn-primary">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down" data-translate="artemisApp.purchase.registerPaymentButton"> Register payment</span>
+    </button>
+    
+    
+    <button type="button" has-authority="ROLE_ADMIN"  ui-sref="purchase-detail.confirmPayment({id:vm.purchase.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="artemisApp.purchase.confirmPaymentButton"> Confirm client's payment</span>
     </button>
 </div>
