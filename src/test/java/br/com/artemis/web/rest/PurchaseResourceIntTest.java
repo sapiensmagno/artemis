@@ -1,11 +1,23 @@
 package br.com.artemis.web.rest;
 
-import br.com.artemis.ArtemisApp;
+import static br.com.artemis.web.rest.TestUtil.sameInstant;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import br.com.artemis.domain.Purchase;
-import br.com.artemis.repository.PurchaseRepository;
-import br.com.artemis.service.PurchaseService;
-import br.com.artemis.web.rest.errors.ExceptionTranslator;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.List;
+
+import javax.persistence.EntityManager;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,18 +33,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import java.time.Instant;
-import java.time.ZonedDateTime;
-import java.time.ZoneOffset;
-import java.time.ZoneId;
-import java.util.List;
-
-import static br.com.artemis.web.rest.TestUtil.sameInstant;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import br.com.artemis.ArtemisApp;
+import br.com.artemis.domain.Purchase;
+import br.com.artemis.repository.PurchaseRepository;
+import br.com.artemis.service.AddressService;
+import br.com.artemis.service.PurchaseService;
+import br.com.artemis.service.SupplierService;
+import br.com.artemis.web.rest.errors.ExceptionTranslator;
 
 /**
  * Test class for the PurchaseResource REST controller.
@@ -57,6 +64,12 @@ public class PurchaseResourceIntTest {
 
     @Autowired
     private PurchaseService purchaseService;
+    
+    @Autowired
+    private SupplierService supplierService;
+    
+    @Autowired
+    AddressService addressService;
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -77,7 +90,7 @@ public class PurchaseResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final PurchaseResource purchaseResource = new PurchaseResource(purchaseService);
+        final PurchaseResource purchaseResource = new PurchaseResource(purchaseService, supplierService, addressService);
         this.restPurchaseMockMvc = MockMvcBuilders.standaloneSetup(purchaseResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
