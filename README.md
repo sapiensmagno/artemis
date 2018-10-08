@@ -4,6 +4,10 @@ Protótipo de loja virtual de replicas de obras de arte baseada na modalidade dr
 ## Demonstração de uso
 Vídeo demonstrando utilização do sistema em 4 cenários: https://youtu.be/YX_JNgZ5qdI
 
+## Default users
+login: user password: user
+login: admin password: admin
+
 ## Instruções para instalação e execução da aplicação (inglês)
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
